@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA_ROOT = Path(os.environ["FAR_DATA_ROOT"])
 MANIFEST = ROOT / "data" / "dataset_manifest.csv"
 
-IMAGE_SIZE = (352, 352)
+IMAGE_SIZE = (256, 256)
 
 def load_sample(row):
     # Đọc ảnh RGB
@@ -73,8 +73,8 @@ if __name__ == "__main__":
     print("Image range:", image.min(), image.max())
     print("Mask foreground:", int(mask.sum()))
 
-    assert image.shape == (352, 352, 3)
-    assert mask.shape == (352, 352)
+    assert image.shape == (256, 256, 3)
+    assert mask.shape == (256, 256)
     assert set(np.unique(mask)).issubset({0.0, 1.0})
 
     print("RESULT: PASS")
