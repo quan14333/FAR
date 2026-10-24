@@ -47,6 +47,8 @@ def load_fold_index(csv_path: Union[str, Path], fold: Union[int, str] = 0,
     rows = frame[frame["fold"] == str(fold)].copy().reset_index(drop=True)
     if rows.empty:
         raise ValueError(f"No records for fold={fold}")
+    if "protocol_version" not in rows.columns or not rows["protocol_version"].eq("inner_clean_v2_v1").all():
+        raise ValueError("Unexpected protocol_version: approved Inner Clean V2 required")
     if rows["image_id"].duplicated().any():
         raise ValueError("Duplicate image_id inside the selected fold")
     if not set(rows["inner_split"]).issubset(set(SPLITS)):
@@ -108,9 +110,14 @@ class CleanV2SegDataset(Dataset):
                  fold: Union[int, str], split: str, *, size: int = 256,
                  include_healthy: bool = False, augment: Optional[bool] = None,
                  return_metadata: bool = False,
-                 strict_clean_v2: bool = True) -> None:
+                 strict_clean_v2: bool = True,
+                 allow_final_test: bool = False) -> None:
         if split not in SPLITS:
             raise ValueError(f"Invalid split {split!r}")
+        if split in {"OUTER_TEST", "NEVER_POLYP_TEST"} and not allow_final_test:
+            raise PermissionError(
+                f"{split} is held out; set allow_final_test=True only for locked final evaluation"
+            )
         if augment is None:
             augment = split == "SEG_TRAIN"
         if augment and split != "SEG_TRAIN":

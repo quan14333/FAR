@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE",
+  "run_id": "a04_fold0_full_5268013f6fd9_20261024T150553407162Z",
+  "mode": "full",
+  "fold": 0,
+  "protocol": "inner_clean_v2_v1",
+  "expected_images": 2717,
+  "checkpoint_sha256": "5268013f6fd90d7c47412875b60b19ef00c37d9de367dd3524cda9368a0c1a61",
+  "checkpoint_path": "/kaggle/working/M1_CLEAN_V2_INNER_FOLD0_AMP_FINAL/best_model.pth",
+  "source_repo_commit": "cf5fc7da8f09ec1bdfd628f39e89548be16a2ec6",
+  "upstream_commit": "ad3bf1c51529bda6de50badedba124e1e15a653c",
+  "split_csv_sha256": "8d7606ae2bff6f823b32f01be05c72356a188e6e8c12b0602d4c5bac3e68804d",
+  "transform_sha256": "c56aa21545986667c534960f950db6bc3008e0aef8bb5ce607fa475e4a8ee6ae",
+  "inference_script_sha256": "3f353a97bd06dde70c867637f969bbc9cff6992995c85ab03a002e43a0319093",
+  "preprocessing": "CleanV2SegDataset + JointSegTransform; RGB; PIL bilinear resize 256x256; ImageNet mean/std; augment=False",
+  "head": "DeepSupervisionOutput.main",
+  "prediction_type": "float32_native_sigmoid_probability",
+  "resize": "logits_bilinear_align_corners_false",
+  "threshold": 0.5,
+  "binary_values": [
+    0,
+    255
+  ],
+  "notebook_slug": "unavailable",
+  "notebook_version": "interactive-unversioned",
+  "device": "cuda",
+  "torch_version": "2.11.0+cu128",
+  "started_at_utc": "2026-10-24T15:05:53.439467+00:00",
+  "completed_images": 2717,
+  "manifest_sha256": "a0855b9470e1e6d2dd6be418931d390d267bf5e20e7cff3b74c890d9a31d25fc",
+  "completed_at_utc": "2026-10-24T15:07:45.533318+00:00"
+}

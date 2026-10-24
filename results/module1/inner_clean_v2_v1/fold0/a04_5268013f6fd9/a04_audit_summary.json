@@ -1,0 +1,24 @@
+{
+  "status": "PASS_REPORTED",
+  "evidence": "User-executed independent A04 full audit",
+  "checkpoint_sha256": "5268013f6fd90d7c47412875b60b19ef00c37d9de367dd3524cda9368a0c1a61",
+  "images": 2717,
+  "probability_files": 2717,
+  "binary_mask_files": 2717,
+  "split_counts": {
+    "SEG_TRAIN": 1318,
+    "SEG_VAL": 356,
+    "META_FIT": 610,
+    "CALIBRATION": 433
+  },
+  "zero_prediction_masks": {
+    "Healthy": 1463,
+    "Polyp": 6
+  },
+  "manifest_sha256": "a0855b9470e1e6d2dd6be418931d390d267bf5e20e7cff3b74c890d9a31d25fc",
+  "notes": [
+    "All file hashes and dimensions passed previous independent audit.",
+    "No OUTER_TEST or NEVER_POLYP_TEST predictions.",
+    "This summary is not a new execution of the full file audit."
+  ]
+}
